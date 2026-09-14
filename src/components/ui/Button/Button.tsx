@@ -6,11 +6,11 @@ import styles from "./Button.module.css";
 };*/
 interface I_ButtonProps {
   type?: "button"|"submit"|"reset";
-  text: any;
+  children:React.ReactNode|Array<React.ReactNode>
 }
-const Button: React.FC<I_ButtonProps> = ({type,text}) => {
+const Button: React.FC<I_ButtonProps> = ({children,type}) => {
   return (
-    <button className={`${styles.Button} ${styles.primary}`} type={type}>{text}</button>
+    <button className={`${styles.Button} ${styles.primary}`} type={type}>{children}</button>
   );
 };
 export default Button;

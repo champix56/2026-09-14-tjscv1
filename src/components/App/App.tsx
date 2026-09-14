@@ -6,8 +6,18 @@ function App() {
     <div className="App">
       DEMAT BREIZH
       <form>
-      <Button type="submit" text="Ok" />
-      <Button type={} text="reset"/>
+      <Button type="submit">
+        Text
+      </Button>
+      <Button type="submit">
+        <div>div</div>
+      </Button>
+      <Button type="submit">
+        <div>a</div>
+        text
+        <div>jh</div>
+        <div>a</div>
+      </Button>
       </form>
     </div>
   );
