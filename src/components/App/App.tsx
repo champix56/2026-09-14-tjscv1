@@ -5,20 +5,16 @@ function App() {
   return (
     <div className="App">
       DEMAT BREIZH
-      <form>
-      <Button type="submit">
+      <Button onButtonClick={()=>{
+        console.log('coucou')
+      }} >
         Text
       </Button>
-      <Button type="submit">
+      <Button className="primary"  onButtonClick={()=>{
+        console.log('toto')
+      }} >
         <div>div</div>
       </Button>
-      <Button type="submit">
-        <div>a</div>
-        text
-        <div>jh</div>
-        <div>a</div>
-      </Button>
-      </form>
     </div>
   );
 }
