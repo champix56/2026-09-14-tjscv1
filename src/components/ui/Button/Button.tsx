@@ -9,7 +9,7 @@ interface I_ButtonProps {
   children: React.ReactNode | Array<React.ReactNode>;
   className?: "primary" | "danger";
 }
-const Button: React.FC<I_ButtonProps> = ({ children, type, className }) => {
+const Button: React.FC<I_ButtonProps> = ({ children, type='button', className }) => {
   const getClassNameFromProps = () => {
     if (className) return " " + styles[className];
     else return "";
