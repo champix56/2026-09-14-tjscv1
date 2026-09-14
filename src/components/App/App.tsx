@@ -5,9 +5,9 @@ function App() {
   return (
     <div className="App">
       DEMAT BREIZH
-      <Button onButtonClick={()=>{
+      <Button style={{border:'1px solid black',textDecoration:'underline' }} onButtonClick={()=>{
         console.log('coucou')
-      }} >
+      }}  >
         Text
       </Button>
       <Button className="primary"  onButtonClick={()=>{
