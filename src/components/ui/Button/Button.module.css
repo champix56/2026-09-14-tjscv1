@@ -1,18 +1,23 @@
-.Button{
-    border-radius: 8px;
-    border: none;
+.Button {
+  border-radius: 8px;
+  border: none;
 
-    font-size: xx-large;
-    font-weight: 900;
-    
-    padding:  10px 15px;
+  font-size: xx-large;
+  font-weight: 900;
 
-    box-shadow: 15px 15px 25px grey;
+  padding: 10px 15px;
 
-    color:white;
-    background-color: blue;
+  box-shadow: 15px 15px 25px grey;
 
+  color: white;
+  background-color: blue;
 }
-.Button:hover{
-    box-shadow: 8px 8px 25px grey;
+.Button:hover {
+  box-shadow: 8px 8px 25px grey;
+}
+.primary {
+  background-color: skyblue;
+}
+.danger {
+  background-color: tomato;
 }
