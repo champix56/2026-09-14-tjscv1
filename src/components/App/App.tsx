@@ -5,7 +5,10 @@ function App() {
   return (
     <div className="App">
       DEMAT BREIZH
-      <Button />
+      <form>
+      <Button type="submit" text="Ok" />
+      <Button type={} text="reset"/>
+      </form>
     </div>
   );
 }
