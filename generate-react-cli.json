@@ -10,7 +10,49 @@
       "withStyle": true,
       "withTest": true, 
       "withStory": true,
-      "withLazy": true
+      "withLazy": true,
+      "customTemplates":{
+        "component":"./grc_templates/genericFcHook/TemplateName.tsx",
+        "test":"./grc_templates/genericFcHook/TemplateName.test.tsx",
+        "lazy":"./grc_templates/genericFcHook/TemplateName.lazy.tsx"
+      }
+    },
+    "hook": {
+      "path": "src/components/functional",
+      "withStyle": true,
+      "withTest": true,
+      "withStory": true,
+      "withLazy": true,
+      "customTemplates":{
+        "component":"./grc_templates/genericFcHook/TemplateName.tsx",
+        "test":"./grc_templates/genericFcHook/TemplateName.test.tsx",
+        "lazy":"./grc_templates/genericFcHook/TemplateName.lazy.tsx"
+      }
+    },
+    "ui": {
+      "path": "src/components/ui",
+      "withStyle": true,
+      "withTest": true,
+      "withStory": true,
+      "withLazy": true,
+      "customTemplates":{
+        "component":"./grc_templates/genericFcHook/TemplateName.tsx",
+        "test":"./grc_templates/genericFcHook/TemplateName.test.tsx",
+        "lazy":"./grc_templates/genericFcHook/TemplateName.lazy.tsx"
+      }
+    },
+    "layout": {
+      "path": "src/components/layouts",
+      "withStyle": true,
+      "withTest": true,
+      "withStory": true,
+      "withLazy": true,
+      "customTemplates":{
+        "component":"./grc_templates/FcLayout/TemplateName.tsx",
+        "test":"./grc_templates/FcLayout/TemplateName.test.tsx",
+        "lazy":"./grc_templates/FcLayout/TemplateName.lazy.tsx",
+        "story":"./grc_templates/FcLayout/TemplateName.stories.tsx"
+      }
     }
   }
 }
