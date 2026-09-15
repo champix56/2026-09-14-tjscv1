@@ -6,19 +6,26 @@ import Footer from "../ui/Footer/Footer";
 import Header from "../ui/Header/Header";
 import Navbar from "../ui/Navbar/Navbar";
 //import "./App.css";
-import {images} from '../../../db.json'
+import { images } from "../../../db.json";
+import { useState } from "react";
 function App() {
-
+  const [current, setCurrent] = useState(emptyMeme);
   return (
     <div className="App">
-     <FlexV3rdGRow>
-        <Header/>
-        <Navbar/>
+      <FlexV3rdGRow>
+        <Header />
+        <Navbar />
         <FlexH1RstGrow>
-          <MemeSVGViewer image={undefined} meme={emptyMeme} basePath=""/>
-          <MemeForm images={images}/>
+          <MemeSVGViewer image={undefined} meme={current} basePath="" />
+          <MemeForm
+            images={images}
+            meme={current}
+            onMemeSubmit={(newMemeValue) => {
+              setCurrent(newMemeValue);
+            }}
+          />
         </FlexH1RstGrow>
-        <Footer/>
+        <Footer />
       </FlexV3rdGRow>
     </div>
   );
