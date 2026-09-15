@@ -1,16 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import Button, { PrimaryButton } from "../ui/Button/Button";
 import "./App.css";
 
 function App() {
-  let counter = 0;
+  const [counter, setCounter] = useState(0)
+  //const [table, setTable] = useState<Array<any>>([])
   return (
     <div className="App">
       valeur du counter : {counter}
       <hr />
       <PrimaryButton
         onButtonClick={() => {
-          counter--;
+          setCounter(counter-1);
           console.log(counter);
         }}
       >
@@ -19,7 +20,7 @@ function App() {
       <Button
         className="danger"
         onButtonClick={() => {
-          counter++;
+          setCounter(counter+1);
           console.log(counter);
         }}
       >
