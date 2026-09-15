@@ -660,6 +660,11 @@ obug@^2.1.4:
   resolved "https://registry.yarnpkg.com/obug/-/obug-2.2.1.tgz#9c453efeeda822050eb9774242e969c784d64d78"
   integrity sha512-XrsrhT5sybtKI6wakr2SPOlGZWWYbUXZ7a0jT8/QOeAPau+1X/bSegNe5YR75oJmEZQbKningirmGOEJCIk61Q==
 
+orsys-tjs-meme@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/orsys-tjs-meme/-/orsys-tjs-meme-1.0.3.tgz#be86fb4178f83cc5ef49522f9b1801e0bc98cf61"
+  integrity sha512-GmJvDeY+bWwoXZmH6jZfe0D6hETpwqZrfE2Cs4QtFPraTVGRfNgyEVzlaTI2Xs/c3avknRhzKKJxjAhGomPIpA==
+
 oxlint@^1.81.0:
   version "1.82.0"
   resolved "https://registry.yarnpkg.com/oxlint/-/oxlint-1.82.0.tgz#21c8362538cfffa93c7515174097381918b2d7e0"
