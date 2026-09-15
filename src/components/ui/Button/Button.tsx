@@ -1,4 +1,4 @@
-import React, { type MouseEventHandler } from "react";
+import React, { useEffect, useState, type MouseEventHandler } from "react";
 import styles from "./Button.module.css";
 /*type T_Buttonprops = {
   type: string;
@@ -13,7 +13,21 @@ interface I_ButtonProps {
   bgcolor?:string
 }
 const Button: React.FC<I_ButtonProps> = ({ children, type='button', className, onButtonClick, style, bgcolor}) => {
+  const [isClicked, setIsClicked] = useState(false)
+  useEffect(() => {
+    console.log('effect');
+    if(isClicked)
+      {setTimeout(()=>{
+        console.log('timeOut');
 
+        setIsClicked(false)
+      },1000)}
+  }, [isClicked])
+
+  /**
+   * assemble section of className based on className props
+   * @returns string class composition with space or nothing if undefined
+   */
   const getClassNameFromProps = () => {
     if (className) return " " + styles[className];
     else return "";
@@ -21,12 +35,14 @@ const Button: React.FC<I_ButtonProps> = ({ children, type='button', className, o
   return (
     <button
       style={{...style,textAlign:'center',backgroundColor:bgcolor}}
-      className={`${styles.Button}${getClassNameFromProps()}`}
+      className={`${styles.Button}${getClassNameFromProps()}${isClicked?' '+styles.clicked:''}`}
       type={type}
       onClick={()=>{
+        setIsClicked(true)
         if(onButtonClick){
           onButtonClick()
         }
+
       }}
     >
       {children}
