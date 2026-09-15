@@ -1,5 +1,5 @@
 import { type ReactNode, type FC } from 'react';
-import styles from './FlexH1RstGrow.module.css';
+import styles from './FlexH1rstGrow.module.css';
 
 interface FlexH1RstGrowProps {
   children:ReactNode|Array<ReactNode>
