@@ -1,9 +1,9 @@
+import { emptyMeme, MemeSVGViewer } from "orsys-tjs-meme";
 import MemeForm from "../functional/MemeForm/MemeForm";
 import FlexH1RstGrow from "../layouts/FlexH1rstGrow/FlexH1rstGrow";
 import FlexV3rdGRow from "../layouts/FlexV3rdGRow/FlexV3rdGRow";
 import Footer from "../ui/Footer/Footer";
 import Header from "../ui/Header/Header";
-import MemeSvgViewer from "../ui/MemeSvgViewer/MemeSvgViewer";
 import Navbar from "../ui/Navbar/Navbar";
 //import "./App.css";
 
@@ -15,7 +15,7 @@ function App() {
         <Header/>
         <Navbar/>
         <FlexH1RstGrow>
-          <MemeSvgViewer/>
+          <MemeSVGViewer image={undefined} meme={emptyMeme} basePath=""/>
           <MemeForm/>
         </FlexH1RstGrow>
         <Footer/>
