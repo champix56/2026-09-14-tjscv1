@@ -1,19 +1,15 @@
 import { useEffect, useState, type FC } from "react";
 import styles from "./MemeForm.module.css";
-import type { ImageInterface } from "orsys-tjs-meme";
+import type { ImageInterface, MemeInterface } from "orsys-tjs-meme";
 
 interface IMemeFormProps {
   images: Array<ImageInterface>;
+  meme: MemeInterface;
+  onMemeSubmit: (newValue: MemeInterface) => void;
 }
 
-const MemeForm: FC<IMemeFormProps> = ({ images }) => {
-  const [state, setState] = useState("");
-  useEffect(() => {
-    //montage
-    return () => {
-      //demontage
-    };
-  }, []);
+const MemeForm: FC<IMemeFormProps> = ({ images, meme, onMemeSubmit }) => {
+  const [state, setState] = useState(meme);
 
   /*const getOptions=()=>{
     const ret=[]
@@ -22,14 +18,24 @@ const MemeForm: FC<IMemeFormProps> = ({ images }) => {
     }
     return ret
   }*/
+  const onTextInputChange = (
+    evt: React.ChangeEvent<HTMLInputElement, HTMLInputElement>,
+  ) => {
+    onMemeSubmit({ ...meme, [evt.target.name]: evt.target.value });
+  };
   return (
     <div className={styles.MemeForm} data-testid="MemeForm">
-      <form>
+      <form >
         <label htmlFor="titre">
           <h1>Titre</h1>
         </label>
         <br />
-        <input name="titre" id="titre" value="React is easy" />
+        <input
+          name="titre"
+          id="titre"
+          value={meme.titre}
+          onChange={onTextInputChange}
+        />
         <hr />
         <label htmlFor="image">
           <h2>Image</h2>
@@ -48,7 +54,13 @@ const MemeForm: FC<IMemeFormProps> = ({ images }) => {
           <h2>texte</h2>
         </label>
         <br />
-        <input name="text" id="text" type="text" value="Le js m'a tué" />
+        <input
+          name="text"
+          id="text"
+          type="text"
+          value={meme.text}
+          onChange={onTextInputChange}
+        />
         <br />
         <label htmlFor="x">
           <h2 style={{ display: "inline" }}>x :</h2>
