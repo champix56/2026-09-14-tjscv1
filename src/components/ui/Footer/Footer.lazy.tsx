@@ -1,8 +1,8 @@
-import { lazy, Suspense, type ComponentProps } from 'react';
+import { lazy, Suspense } from "react";
 
-const LazyFooter = lazy(() => import('./Footer'));
+const LazyFooter = lazy(() => import("./Footer"));
 
-const Footer = (props: ComponentProps<typeof LazyFooter>) => (
+const Footer = (props: object) => (
   <Suspense fallback={null}>
     <LazyFooter {...props} />
   </Suspense>

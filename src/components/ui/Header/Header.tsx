@@ -1,21 +1,14 @@
-import { useEffect, useState, type FC } from 'react';
+import type { FC } from 'react';
 import styles from './Header.module.css';
 
 interface HeaderProps {}
 
-const Header: FC<HeaderProps> = ({}) => {
-  const [state, setState] = useState<Array<any>>([])
-  useEffect(() => {
-    //montage & update
-    return () => {
-      //demontage
-    }
-  }, [])
-  
-  return (
+const Header: FC<HeaderProps> = () => (
   <div className={styles.Header} data-testid="Header">
-    Header Component
+      Meme<span className={styles.dot}>.</span>
+    <span className={styles.js}>js</span>
+ 
   </div>
-);}
+);
 
 export default Header;
