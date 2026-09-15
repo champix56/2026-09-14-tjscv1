@@ -10,8 +10,9 @@ interface I_ButtonProps {
   className?: "primary" | "danger";
   onButtonClick?:()=>void
   style?:React.CSSProperties
+  bgcolor?:string
 }
-const Button: React.FC<I_ButtonProps> = ({ children, type='button', className, onButtonClick, style}) => {
+const Button: React.FC<I_ButtonProps> = ({ children, type='button', className, onButtonClick, style, bgcolor}) => {
 
   const getClassNameFromProps = () => {
     if (className) return " " + styles[className];
@@ -19,7 +20,7 @@ const Button: React.FC<I_ButtonProps> = ({ children, type='button', className, o
   };
   return (
     <button
-      style={{...style,textAlign:'center',}}
+      style={{...style,textAlign:'center',backgroundColor:bgcolor}}
       className={`${styles.Button}${getClassNameFromProps()}`}
       type={type}
       onClick={()=>{
@@ -33,3 +34,15 @@ const Button: React.FC<I_ButtonProps> = ({ children, type='button', className, o
   );
 };
 export default Button;
+interface IPrimaryButtonProps{
+  type?: "button" | "submit" | "reset";
+  children: React.ReactNode | Array<React.ReactNode>;
+    onButtonClick?:()=>void
+
+
+}
+export const PrimaryButton : React.FC<IPrimaryButtonProps>= (props) => {
+  return (
+    <Button {...props} className="primary" />
+  )
+}
