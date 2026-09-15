@@ -1,19 +1,19 @@
-import { useEffect, useState, type FC } from 'react';
-import styles from './MemeForm.module.css';
-import type { ImageInterface } from 'orsys-tjs-meme';
+import { useEffect, useState, type FC } from "react";
+import styles from "./MemeForm.module.css";
+import type { ImageInterface } from "orsys-tjs-meme";
 
 interface IMemeFormProps {
-  images:Array<ImageInterface>
- }
+  images: Array<ImageInterface>;
+}
 
 const MemeForm: FC<IMemeFormProps> = ({ images }) => {
-  const [state, setState] = useState('')
+  const [state, setState] = useState("");
   useEffect(() => {
     //montage
     return () => {
       //demontage
-    }
-  }, [])
+    };
+  }, []);
 
   /*const getOptions=()=>{
     const ret=[]
@@ -24,7 +24,7 @@ const MemeForm: FC<IMemeFormProps> = ({ images }) => {
   }*/
   return (
     <div className={styles.MemeForm} data-testid="MemeForm">
-            <form>
+      <form>
         <label htmlFor="titre">
           <h1>Titre</h1>
         </label>
@@ -37,7 +37,11 @@ const MemeForm: FC<IMemeFormProps> = ({ images }) => {
         <br />
         <select name="image" id="image">
           <option value="-1">pas d'image</option>
-          {images.map((e,i)=><option key={'i'+i} value={e.id}>{e.name}</option>)}
+          {images.map((e, i) => (
+            <option key={"i" + i} value={e.id}>
+              {e.name}
+            </option>
+          ))}
         </select>
         <hr />
         <label htmlFor="text">
@@ -106,7 +110,7 @@ const MemeForm: FC<IMemeFormProps> = ({ images }) => {
         <label htmlFor="underline">
           <h2 style={{ display: "inline" }}>underline</h2>
         </label>
-        &nbsp;<h2 style={{display: 'inline'}}>/</h2>
+        &nbsp;<h2 style={{ display: "inline" }}>/</h2>
         &nbsp;
         <label htmlFor="italic">
           <h2 style={{ display: "inline" }}>italic</h2>
@@ -143,6 +147,6 @@ const MemeForm: FC<IMemeFormProps> = ({ images }) => {
       </form>
     </div>
   );
-}
+};
 
 export default MemeForm;
