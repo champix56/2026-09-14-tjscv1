@@ -51,7 +51,8 @@
         "component":"./grc_templates/FcLayout/TemplateName.tsx",
         "test":"./grc_templates/FcLayout/TemplateName.test.tsx",
         "lazy":"./grc_templates/FcLayout/TemplateName.lazy.tsx",
-        "story":"./grc_templates/FcLayout/TemplateName.stories.tsx"
+        "story":"./grc_templates/FcLayout/TemplateName.stories.tsx",
+        "style":"./grc_templates/FcLayout/TemplateName.module.css"
       }
     }
   }
