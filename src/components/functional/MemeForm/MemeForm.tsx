@@ -1,9 +1,12 @@
 import { useEffect, useState, type FC } from 'react';
 import styles from './MemeForm.module.css';
+import type { ImageInterface } from 'orsys-tjs-meme';
 
-interface IMemeFormProps { }
+interface IMemeFormProps {
+  images:Array<ImageInterface>
+ }
 
-const MemeForm: FC<IMemeFormProps> = ({ }) => {
+const MemeForm: FC<IMemeFormProps> = ({ images }) => {
   const [state, setState] = useState('')
   useEffect(() => {
     //montage
