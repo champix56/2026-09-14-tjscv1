@@ -99,7 +99,7 @@ const MemeForm: FC<IMemeFormProps> = ({ }) => {
         <label for="underline">
           <h2 style={{ display: "inline" }}>underline</h2>
         </label>
-        &nbsp;<h2 style="display: inline;">/</h2>
+        &nbsp;<h2 style={{display: 'inline'}}>/</h2>
         &nbsp;
         <label for="italic">
           <h2 style={{ display: "inline" }}>italic</h2>
