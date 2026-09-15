@@ -8,13 +8,15 @@
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "gen":"npx generate-react-cli c",
-    "gen:ui":"npx generate-react-cli c --type=ui",
-    "gen:function":"npx generate-react-cli c --type=functional",
-    "gen:layout":"npx generate-react-cli c --type=layout"
+    "gen": "npx generate-react-cli c",
+    "gen:ui": "npx generate-react-cli c --type=ui",
+    "gen:function": "npx generate-react-cli c --type=functional",
+    "gen:layout": "npx generate-react-cli c --type=layout"
   },
   "dependencies": {
+    "bootstrap": "^5.3.8",
     "react": "^19.2.8",
+    "react-bootstrap": "^2.10.10",
     "react-dom": "^19.2.8"
   },
   "devDependencies": {
