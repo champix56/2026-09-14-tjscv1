@@ -15,7 +15,13 @@ const MemeForm: FC<IMemeFormProps> = ({ images }) => {
     }
   }, [])
 
-  
+  /*const getOptions=()=>{
+    const ret=[]
+    for (const image of images) {
+      ret.push(<option></option>)
+    }
+    return ret
+  }*/
   return (
     <div className={styles.MemeForm} data-testid="MemeForm">
             <form>
@@ -30,10 +36,8 @@ const MemeForm: FC<IMemeFormProps> = ({ images }) => {
         </label>
         <br />
         <select name="image" id="image">
-          <option value="1">futurama1.jpg</option>
-          <option value="2">futurama2.png</option>
-          <option value="3">futurama3.png</option>
-          <option value="4">gwenadu.jpg</option>
+          <option value="-1">pas d'image</option>
+          {images.map((e,i)=><option key={'i'+i} value={e.id}>{e.name}</option>)}
         </select>
         <hr />
         <label htmlFor="text">

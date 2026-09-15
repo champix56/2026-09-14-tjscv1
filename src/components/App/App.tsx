@@ -6,7 +6,7 @@ import Footer from "../ui/Footer/Footer";
 import Header from "../ui/Header/Header";
 import Navbar from "../ui/Navbar/Navbar";
 //import "./App.css";
-
+import {images} from '../../../db.json'
 function App() {
 
   return (
@@ -16,7 +16,7 @@ function App() {
         <Navbar/>
         <FlexH1RstGrow>
           <MemeSVGViewer image={undefined} meme={emptyMeme} basePath=""/>
-          <MemeForm/>
+          <MemeForm images={images}/>
         </FlexH1RstGrow>
         <Footer/>
       </FlexV3rdGRow>
