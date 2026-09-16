@@ -11,7 +11,7 @@ interface IMemeFormProps {
 const MemeForm: FC<IMemeFormProps> = ({ images, meme, onMemeSubmit }) => {
   const [state, setState] = useState(meme);
   /**
-   * gestion 
+   * gestion de l'event des input change pour des valeurs string
    * @param evt {React.ChangeEvent} event de l'input
    */
   const onStringInput: React.ChangeEventHandler<
@@ -20,6 +20,11 @@ const MemeForm: FC<IMemeFormProps> = ({ images, meme, onMemeSubmit }) => {
   > = (evt) => {
     setState({ ...state, [evt.target.name]: evt.target.value });
   };
+  /**
+   * gestion de l'event des input change pour des valeurs number
+   * @param evt {React.ChangeEvent} event de l'input
+   * @returns {undefined}
+   */
   const onNumberInput: React.ChangeEventHandler<
     HTMLInputElement,
     HTMLInputElement
@@ -29,6 +34,10 @@ const MemeForm: FC<IMemeFormProps> = ({ images, meme, onMemeSubmit }) => {
       [evt.target.name]: Number.parseInt(evt.target.value),
     });
   };
+  /**
+   * gestion de l'event des input change pour des valeurs checked
+   * @param evt {React.ChangeEvent} event de l'input
+   */
     const onCheckChange: React.ChangeEventHandler<
     HTMLInputElement,
     HTMLInputElement
