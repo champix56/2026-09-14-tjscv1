@@ -6,6 +6,7 @@ import Navbar from "../ui/Navbar/Navbar";
 import { Link, Route, Routes } from 'react-router';
 import Home from '../../pages/Home';
 import Editor from '../../pages/Editor';
+import Thumbnail from "../../pages/Thumbnail";
 function App() {
   return (
     <div className="App">
@@ -16,10 +17,12 @@ function App() {
           <Routes>
             <Route path="/" Component={()=><Home name='Alexandre'/>} />
             <Route path="/editor" Component={Editor} />
+            <Route path="/editor/:id" Component={Editor} />
+            <Route path="/thumbnail" Component={Thumbnail} />
           </Routes>
         </FlexH1RstGrow>
         <div style={{textAlign:"center"}}>
-          <Link to='/'>Home</Link> | <Link to="/editor">Editeur</Link>
+          <Link to='/'>Home</Link> | <Link to="/editor">Editeur</Link> | <Link to="/thumbnail">Thumbnail</Link>
         </div>
         <Footer />
       </FlexV3rdGRow>
