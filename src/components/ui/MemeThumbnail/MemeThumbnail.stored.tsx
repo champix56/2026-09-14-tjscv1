@@ -1,4 +1,3 @@
-import React from 'react'
 import Mt from './MemeThumbnail'
 import { useSelector } from 'react-redux'
 import type { RootState } from '../../../store/store'
