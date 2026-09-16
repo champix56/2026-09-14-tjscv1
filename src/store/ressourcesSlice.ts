@@ -6,11 +6,13 @@ import { updateCurrent } from "./currentSlice";
 interface IRessourcesState {
   images: Array<ImageInterface>;
   memes: Array<MemeInterface>;
+  isLoaded:boolean
 }
 
 const initialState: IRessourcesState = {
   images: [],
   memes: [],
+  isLoaded:false
 };
 
 const ressourcesSlice = createSlice({
