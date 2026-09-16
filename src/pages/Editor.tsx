@@ -1,5 +1,5 @@
 import MemeSvgViewer from '../components/ui/MemeSvgViewer/MemeSvgViewer'
-import MemeForm from '../components/functional/MemeForm/MemeForm.stored'
+import MemeForm from '../components/functional/MemeForm/MemeForm.lazy'
 import { useLocation, useNavigate, useParams } from 'react-router'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
