@@ -10,19 +10,33 @@ interface IMemeFormProps {
 
 const MemeForm: FC<IMemeFormProps> = ({ images, meme, onMemeSubmit }) => {
   const [state, setState] = useState(meme);
-
-  /*const getOptions=()=>{
-    const ret=[]
-    for (const image of images) {
-      ret.push(<option></option>)
-    }
-    return ret
-  }*/
+  /**
+   * gestion 
+   * @param evt {React.ChangeEvent} event de l'input
+   */
   const onStringInput: React.ChangeEventHandler<
     HTMLInputElement,
     HTMLInputElement
   > = (evt) => {
     setState({ ...state, [evt.target.name]: evt.target.value });
+  };
+  const onNumberInput: React.ChangeEventHandler<
+    HTMLInputElement,
+    HTMLInputElement
+  > = (evt) => {
+    setState({
+      ...state,
+      [evt.target.name]: Number.parseInt(evt.target.value),
+    });
+  };
+    const onCheckChange: React.ChangeEventHandler<
+    HTMLInputElement,
+    HTMLInputElement
+  > = (evt) => {
+    setState({
+      ...state,
+      [evt.target.name]: evt.target.checked,
+    });
   };
   return (
     <div className={styles.MemeForm} data-testid="MemeForm">
@@ -31,7 +45,12 @@ const MemeForm: FC<IMemeFormProps> = ({ images, meme, onMemeSubmit }) => {
           <h1>Titre</h1>
         </label>
         <br />
-        <input name="titre" id="titre" value="React is easy" />
+        <input
+          name="titre"
+          id="titre"
+          value={state.titre}
+          onChange={onStringInput}
+        />
         <hr />
         <label htmlFor="image">
           <h2>Image</h2>
@@ -66,7 +85,8 @@ const MemeForm: FC<IMemeFormProps> = ({ images, meme, onMemeSubmit }) => {
           name="x"
           id="x"
           type="number"
-          value="121"
+          value={state.x}
+          onChange={onNumberInput}
         />
         <label htmlFor="y">
           <h2 style={{ display: "inline" }}>y :</h2>
@@ -76,7 +96,8 @@ const MemeForm: FC<IMemeFormProps> = ({ images, meme, onMemeSubmit }) => {
           name="y"
           id="y"
           type="number"
-          value="65"
+          value={state.y}
+          onChange={onNumberInput}
         />
         <hr />
         <br />
@@ -84,7 +105,13 @@ const MemeForm: FC<IMemeFormProps> = ({ images, meme, onMemeSubmit }) => {
         <label htmlFor="color">
           <h2 style={{ display: "inline" }}>color :</h2>
         </label>
-        <input name="color" id="color" type="color" value="#FFFFFF" />
+        <input
+          name="color"
+          id="color"
+          type="color"
+          value={state.color}
+          onChange={onStringInput}
+        />
         <br />
         <label htmlFor="fontSize">
           <h2 style={{ display: "inline" }}>font-size :</h2>
@@ -95,7 +122,8 @@ const MemeForm: FC<IMemeFormProps> = ({ images, meme, onMemeSubmit }) => {
           id="fontSize"
           type="number"
           min="0"
-          value="73"
+          value={state.fontSize}
+          onChange={onNumberInput}
         />
         px
         <br />
@@ -110,10 +138,11 @@ const MemeForm: FC<IMemeFormProps> = ({ images, meme, onMemeSubmit }) => {
           min="100"
           step="100"
           max="900"
-          value="900"
+          value={state.fontWeight}
+          onChange={onStringInput}
         />
         <br />
-        <input name="underline" id="underline" type="checkbox" />
+        <input name="underline" id="underline" type="checkbox" checked={state.underline} onChange={onCheckChange} />
         &nbsp;
         <label htmlFor="underline">
           <h2 style={{ display: "inline" }}>underline</h2>
@@ -124,7 +153,7 @@ const MemeForm: FC<IMemeFormProps> = ({ images, meme, onMemeSubmit }) => {
           <h2 style={{ display: "inline" }}>italic</h2>
         </label>
         &nbsp;
-        <input name="italic" id="italic" type="checkbox" />
+        <input name="italic" id="italic" type="checkbox" checked={state.italic} onChange={onCheckChange} />
         <hr />
         <br />
         <label htmlFor="frameSizeX">
@@ -136,7 +165,8 @@ const MemeForm: FC<IMemeFormProps> = ({ images, meme, onMemeSubmit }) => {
           id="frameSizeX"
           type="number"
           min="0"
-          value="0"
+          value={state.frameSizeX}
+          onChange={onNumberInput}
         />
         px{" "}
         <label htmlFor="frameSizeY">
@@ -148,7 +178,8 @@ const MemeForm: FC<IMemeFormProps> = ({ images, meme, onMemeSubmit }) => {
           id="frameSizeY"
           type="number"
           min="0"
-          value="0"
+          value={state.frameSizeY}
+          onChange={onNumberInput}
         />
         px
         <br />
