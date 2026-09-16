@@ -5,6 +5,7 @@ import FlexV3rdGRow from "../layouts/FlexV3rdGRow/FlexV3rdGRow";
 import Footer from "../ui/Footer/Footer";
 import Header from "../ui/Header/Header";
 import Navbar from "../ui/Navbar/Navbar";
+import { Link } from 'react-router';
 function App() {
 
   return (
@@ -16,6 +17,9 @@ function App() {
           <MemeSVGViewer />
           <MemeForm />
         </FlexH1RstGrow>
+        <div style={{textAlign:"center"}}>
+          <Link to='/'>Home</Link> | <Link to="/editor">Editeur</Link>
+        </div>
         <Footer />
       </FlexV3rdGRow>
     </div>
