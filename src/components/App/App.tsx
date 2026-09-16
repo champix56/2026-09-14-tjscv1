@@ -16,11 +16,14 @@ function App() {
         <Header />
         <Navbar />
         <FlexH1RstGrow>
-          <MemeSVGViewer image={undefined} meme={current} basePath="" />
+          <MemeSVGViewer image={images.find(e=>e.id===current.imageId)} meme={current} basePath="" />
           <MemeForm
             images={images}
             meme={current}
             onMemeSubmit={(newMemeValue) => {
+              //enregistrement rest ;
+            }}
+            onMemeChange={(newMemeValue) => {
               setCurrent(newMemeValue);
             }}
           />

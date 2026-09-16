@@ -1,15 +1,21 @@
 import React, { useEffect, useState, type FC } from "react";
 import styles from "./MemeForm.module.css";
 import type { ImageInterface, MemeInterface } from "orsys-tjs-meme";
+import Button from "../../ui/Button/Button";
 
 interface IMemeFormProps {
   images: Array<ImageInterface>;
   meme: MemeInterface;
   onMemeSubmit: (newValue: MemeInterface) => void;
+  onMemeChange: (newValue: MemeInterface) => void;
 }
 
-const MemeForm: FC<IMemeFormProps> = ({ images, meme, onMemeSubmit }) => {
-  const [state, setState] = useState(meme);
+const MemeForm: FC<IMemeFormProps> = ({ images, meme, onMemeSubmit, onMemeChange }) => {
+  /*const [state, setState] = useState(meme);
+  useEffect(() => {
+   onMemeChange(state)
+  }, [state, onMemeChange])
+  */
   /**
    * gestion de l'event des input change pour des valeurs string
    * @param evt {React.ChangeEvent} event de l'input
@@ -18,7 +24,7 @@ const MemeForm: FC<IMemeFormProps> = ({ images, meme, onMemeSubmit }) => {
     HTMLInputElement,
     HTMLInputElement
   > = (evt) => {
-    setState({ ...state, [evt.target.name]: evt.target.value });
+    onMemeChange({ ...meme, [evt.target.name]: evt.target.value });
   };
   /**
    * gestion de l'event des input change pour des valeurs number
@@ -26,11 +32,10 @@ const MemeForm: FC<IMemeFormProps> = ({ images, meme, onMemeSubmit }) => {
    * @returns {undefined}
    */
   const onNumberInput: React.ChangeEventHandler<
-    HTMLInputElement,
-    HTMLInputElement
+    HTMLInputElement|HTMLSelectElement,
+    HTMLInputElement|HTMLSelectElement
   > = (evt) => {
-    setState({
-      ...state,
+    onMemeChange({ ...meme,
       [evt.target.name]: Number.parseInt(evt.target.value),
     });
   };
@@ -42,14 +47,16 @@ const MemeForm: FC<IMemeFormProps> = ({ images, meme, onMemeSubmit }) => {
     HTMLInputElement,
     HTMLInputElement
   > = (evt) => {
-    setState({
-      ...state,
+   onMemeChange({ ...meme,
       [evt.target.name]: evt.target.checked,
     });
   };
   return (
     <div className={styles.MemeForm} data-testid="MemeForm">
-      <form>
+      <form onSubmit={evt=>{
+        evt.preventDefault()
+        onMemeSubmit(meme)
+      }}>
         <label htmlFor="titre">
           <h1>Titre</h1>
         </label>
@@ -57,7 +64,7 @@ const MemeForm: FC<IMemeFormProps> = ({ images, meme, onMemeSubmit }) => {
         <input
           name="titre"
           id="titre"
-          value={state.titre}
+          value={meme.titre}
           onChange={onStringInput}
         />
         <hr />
@@ -65,7 +72,7 @@ const MemeForm: FC<IMemeFormProps> = ({ images, meme, onMemeSubmit }) => {
           <h2>Image</h2>
         </label>
         <br />
-        <select name="image" id="image">
+        <select name="imageId" id="image" value={meme.imageId} onChange={onNumberInput}>
           <option value="-1">pas d'image</option>
           {images.map((e, i) => (
             <option key={"i" + i} value={e.id}>
@@ -82,7 +89,7 @@ const MemeForm: FC<IMemeFormProps> = ({ images, meme, onMemeSubmit }) => {
           name="text"
           id="text"
           type="text"
-          value={state.text}
+          value={meme.text}
           onChange={onStringInput}
         />
         <br />
@@ -94,7 +101,7 @@ const MemeForm: FC<IMemeFormProps> = ({ images, meme, onMemeSubmit }) => {
           name="x"
           id="x"
           type="number"
-          value={state.x}
+          value={meme.x}
           onChange={onNumberInput}
         />
         <label htmlFor="y">
@@ -105,7 +112,7 @@ const MemeForm: FC<IMemeFormProps> = ({ images, meme, onMemeSubmit }) => {
           name="y"
           id="y"
           type="number"
-          value={state.y}
+          value={meme.y}
           onChange={onNumberInput}
         />
         <hr />
@@ -118,7 +125,7 @@ const MemeForm: FC<IMemeFormProps> = ({ images, meme, onMemeSubmit }) => {
           name="color"
           id="color"
           type="color"
-          value={state.color}
+          value={meme.color}
           onChange={onStringInput}
         />
         <br />
@@ -131,7 +138,7 @@ const MemeForm: FC<IMemeFormProps> = ({ images, meme, onMemeSubmit }) => {
           id="fontSize"
           type="number"
           min="0"
-          value={state.fontSize}
+          value={meme.fontSize}
           onChange={onNumberInput}
         />
         px
@@ -147,11 +154,11 @@ const MemeForm: FC<IMemeFormProps> = ({ images, meme, onMemeSubmit }) => {
           min="100"
           step="100"
           max="900"
-          value={state.fontWeight}
+          value={meme.fontWeight}
           onChange={onStringInput}
         />
         <br />
-        <input name="underline" id="underline" type="checkbox" checked={state.underline} onChange={onCheckChange} />
+        <input name="underline" id="underline" type="checkbox" checked={meme.underline} onChange={onCheckChange} />
         &nbsp;
         <label htmlFor="underline">
           <h2 style={{ display: "inline" }}>underline</h2>
@@ -162,7 +169,7 @@ const MemeForm: FC<IMemeFormProps> = ({ images, meme, onMemeSubmit }) => {
           <h2 style={{ display: "inline" }}>italic</h2>
         </label>
         &nbsp;
-        <input name="italic" id="italic" type="checkbox" checked={state.italic} onChange={onCheckChange} />
+        <input name="italic" id="italic" type="checkbox" checked={meme.italic} onChange={onCheckChange} />
         <hr />
         <br />
         <label htmlFor="frameSizeX">
@@ -174,7 +181,7 @@ const MemeForm: FC<IMemeFormProps> = ({ images, meme, onMemeSubmit }) => {
           id="frameSizeX"
           type="number"
           min="0"
-          value={state.frameSizeX}
+          value={meme.frameSizeX}
           onChange={onNumberInput}
         />
         px{" "}
@@ -187,11 +194,14 @@ const MemeForm: FC<IMemeFormProps> = ({ images, meme, onMemeSubmit }) => {
           id="frameSizeY"
           type="number"
           min="0"
-          value={state.frameSizeY}
+          value={meme.frameSizeY}
           onChange={onNumberInput}
         />
         px
         <br />
+        <div style={{textAlign:"center"}}>
+          <Button type="submit">Save</Button>
+        </div>
       </form>
     </div>
   );
