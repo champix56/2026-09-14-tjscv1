@@ -27,13 +27,7 @@ function App() {
             images={images}
             onMemeSubmit={(newMemeValue) => {
               //enregistrement rest ;
-              fetch(`http://localhost:5679/memes${current.id!==undefined?'/'+current.id:''}`,{
-                method:current.id!==undefined?'PUT':'POST',
-                headers:{
-                  "Content-Type":"application/json"
-                },
-                body:JSON.stringify(current)
-              })
+              
             }}
           />
         </FlexH1RstGrow>
