@@ -1,6 +1,9 @@
 .FlexH1RstGrow {
     display: flex;
+    height: calc(98vh - 130px);
 }
 .FlexH1RstGrow>*:first-child {
     flex-grow: 1;
+    padding: 5px;
+
 }

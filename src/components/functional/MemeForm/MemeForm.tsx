@@ -172,8 +172,9 @@ const MemeForm: FC<IMemeFormProps> = ({ images, meme, onMemeSubmit, onMemeChange
         <input name="italic" id="italic" type="checkbox" checked={meme.italic} onChange={onCheckChange} />
         <hr />
         <br />
+          <h2 >frame size</h2>
         <label htmlFor="frameSizeX">
-          <h2 style={{ display: "inline" }}>frame size X :</h2>
+          <h2 style={{ display: "inline" }}>X :</h2>
         </label>
         <input
           className={styles.smallNumber}
@@ -186,7 +187,7 @@ const MemeForm: FC<IMemeFormProps> = ({ images, meme, onMemeSubmit, onMemeChange
         />
         px{" "}
         <label htmlFor="frameSizeY">
-          <h2 style={{ display: "inline" }}>frame size y :</h2>
+          <h2 style={{ display: "inline" }}>Y :</h2>
         </label>
         <input
           className={styles.smallNumber}
@@ -198,7 +199,7 @@ const MemeForm: FC<IMemeFormProps> = ({ images, meme, onMemeSubmit, onMemeChange
           onChange={onNumberInput}
         />
         px
-        <br />
+        <hr />
         <div style={{textAlign:"center"}}>
           <Button type="submit">Save</Button>
         </div>
