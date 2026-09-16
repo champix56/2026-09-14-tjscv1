@@ -1,21 +1,23 @@
-import type { ImageInterface, MemeInterface } from "orsys-tjs-meme";
 import MfDisconnected from "./MemeForm";
 import { useDispatch, useSelector } from "react-redux";
-import { updateCurrent } from "../../../store/currentSlice";
-type Props = {
-  images: Array<ImageInterface>;
-  onMemeSubmit: (newValue: MemeInterface) => void;
-};
+import { saveCurrent, updateCurrent } from "../../../store/currentSlice";
+import type { AppDispatch, RootState } from "../../../store/store";
+type Props = {};
 
 const MemeForm = (props: Props) => {
-  const meme = useSelector((s) => s.current.meme as MemeInterface);
-  const dispatch = useDispatch();
+  const meme = useSelector((s: RootState) => s.current.meme);
+  const images = useSelector((s: RootState) => s.ressources.images);
+  const dispatch = useDispatch<AppDispatch>();
   return (
     <MfDisconnected
       {...props}
       meme={meme}
+      images={images}
       onMemeChange={(newMeme) => {
         dispatch(updateCurrent(newMeme));
+      }}
+      onMemeSubmit={() => {
+        dispatch(saveCurrent(meme));
       }}
     />
   );
