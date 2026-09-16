@@ -10,6 +10,23 @@ export const loadAllRessources = createAsyncThunk("current/load", async () => {
     memes: Array<MemeInterface>;
   };
 });
+export const saveCurrent = createAsyncThunk(
+  "current/save",
+  async (meme: MemeInterface) => {
+    const pr = await fetch(
+      `http://localhost:5679/memes${meme.id !== undefined ? "/" + meme.id : ""}`,
+      {
+        method: meme.id !== undefined ? "PUT" : "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(meme),
+      },
+    );
+    return (await pr.json()) as MemeInterface;
+  },
+);
+
 /*
 export const loadUniqueImage = createAsyncThunk("current/loadUnique", async (id) => {
   const pri = await fetch("http://localhost:5679/images/"+id);
