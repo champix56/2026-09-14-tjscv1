@@ -1,4 +1,4 @@
-import FlexH1RstGrow from './FlexH1RstGrow';
+import FlexH1RstGrow from './FlexH1rstGrow';
 
 export default {
   title: 'FlexH1RstGrow',

@@ -1,4 +1,4 @@
-import type { ImageInterface, MemeInterface } from "orsys-tjs-meme";
+import type { MemeInterface } from "orsys-tjs-meme";
 import MfDisconnected from "./MemeForm";
 import { useDispatch, useSelector } from "react-redux";
 import { updateCurrent } from "../../../store/currentSlice";

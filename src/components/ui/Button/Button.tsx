@@ -1,4 +1,4 @@
-import React, { useEffect, useState, type MouseEventHandler } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Button.module.css";
 /*type T_Buttonprops = {
   type: string;

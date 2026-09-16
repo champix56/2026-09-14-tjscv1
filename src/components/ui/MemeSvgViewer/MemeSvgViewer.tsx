@@ -1,7 +1,6 @@
 import { type FC } from "react";
 import {
   MemeSVGViewer as Msvg,
-  type ImageInterface,
 } from "orsys-tjs-meme";
 import { useSelector } from "react-redux";
 import type { RootState } from "../../../store/store";

@@ -18,6 +18,7 @@ const ressourcesSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers(builder) {
+    //@ts-ignore
     builder.addCase(loadAllRessources.fulfilled, (state, action) => {
       /*state.images=action.payload.images
         state.memes=action.payload.memes*/
