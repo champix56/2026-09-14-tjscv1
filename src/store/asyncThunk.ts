@@ -5,9 +5,10 @@ export const loadAllRessources = createAsyncThunk("current/load", async () => {
   const pri = fetch("http://localhost:5679/images");
   const prm = fetch("http://localhost:5679/memes");
   const prall = await Promise.all([pri, prm]);
-  return { images: await prall[0].json(), memes: await prall[1].json() } as {
+  return { images: await prall[0].json(), memes: await prall[1].json(), isLoaded:true } as {
     images: Array<ImageInterface>;
     memes: Array<MemeInterface>;
+    isLoaded:boolean
   };
 });
 export const saveCurrent = createAsyncThunk(
