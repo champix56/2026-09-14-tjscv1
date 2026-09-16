@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { emptyMeme, type MemeInterface } from "orsys-tjs-meme";
+import { saveCurrent } from "./asyncThunk";
+
 
 const initialState = {
   meme: emptyMeme,
@@ -18,6 +20,11 @@ const current = createSlice({
     clearCurrent: (state) => {
       state.meme = emptyMeme;
     },
+  },
+  extraReducers(builder) {
+    builder.addCase(saveCurrent.fulfilled,(state,action)=>{
+        state.meme=action.payload
+    })
   },
 });
 
