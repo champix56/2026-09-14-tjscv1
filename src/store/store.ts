@@ -13,6 +13,8 @@ store.subscribe(()=>{
     console.log(store.getState());
 })
 export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+
 //setInterval(()=>{},10000)
 store.dispatch(loadAllRessources())
 /*store.dispatch(updateCurrent({...store.getState().current.meme,titre:'zertyu'}))
