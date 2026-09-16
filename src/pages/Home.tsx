@@ -1,7 +1,7 @@
 
-const Home = () => {
+const Home = ({name}:{name:string}) => {
   return (
-    <div>Home</div>
+    <div>Bonjour {name}</div>
   )
 }
 
