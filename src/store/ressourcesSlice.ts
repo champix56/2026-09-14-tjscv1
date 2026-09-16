@@ -4,10 +4,12 @@ import { saveCurrent } from "./currentSlice";
 interface IRessourcesState {
   images: ImageInterface[];
   memes: MemeInterface[];
+  isLoaded:boolean
 }
 const initialState: IRessourcesState = {
   images: [],
   memes: [],
+  isLoaded:false
 };
 
 const ressourcesSlice = createSlice({
@@ -34,6 +36,7 @@ export const loadRessources = createAsyncThunk("ressources/load", async () => {
   return { images: await prall[1].json(), memes: await prall[0].json() } as {
     images: Array<ImageInterface>;
     memes: Array<MemeInterface>;
+    isLoaded:true
   };
 });
 //export const {} = ressourcesSlice.actions
