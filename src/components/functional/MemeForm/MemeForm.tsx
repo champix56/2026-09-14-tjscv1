@@ -1,4 +1,4 @@
-import React, { useEffect, useState, type FC } from "react";
+import React, { type FC } from "react";
 import styles from "./MemeForm.module.css";
 import type { ImageInterface, MemeInterface } from "orsys-tjs-meme";
 import Button from "../../ui/Button/Button";
@@ -11,11 +11,6 @@ interface IMemeFormProps {
 }
 
 const MemeForm: FC<IMemeFormProps> = ({ images, meme, onMemeSubmit, onMemeChange }) => {
-  /*const [state, setState] = useState(meme);
-  useEffect(() => {
-   onMemeChange(state)
-  }, [state, onMemeChange])
-  */
   /**
    * gestion de l'event des input change pour des valeurs string
    * @param evt {React.ChangeEvent} event de l'input
