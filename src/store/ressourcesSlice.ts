@@ -20,6 +20,7 @@ const ressourcesSlice = createSlice({
     builder.addCase(loadRessources.fulfilled, (state, action) => {
       state.images = action.payload.images;
       state.memes = action.payload.memes;
+      state.isLoaded=true
     });
     builder.addCase(saveCurrent.fulfilled,(state,action)=>{
         const pos=state.memes.findIndex(m=>m.id===action.payload.id)
@@ -33,10 +34,10 @@ export const loadRessources = createAsyncThunk("ressources/load", async () => {
   const prm = fetch("http://localhost:5679/memes");
   const pri = fetch("http://localhost:5679/images");
   const prall = await Promise.all([prm, pri]);
-  return { images: await prall[1].json(), memes: await prall[0].json() } as {
+  return { images: await prall[1].json(), memes: await prall[0].json(), isLoaded:true } as {
     images: Array<ImageInterface>;
     memes: Array<MemeInterface>;
-    isLoaded:true
+    isLoaded:boolean
   };
 });
 //export const {} = ressourcesSlice.actions
