@@ -9,6 +9,7 @@ import {store} from  '../../store/store'
 //import "./App.css";
 //import { images } from "../../../db.json";
 import { useEffect, useState } from "react";
+import MemeThumbnail from "../ui/MemeThumbnail/MemeThumbnail.stored";
 function App() {
   const [current, setCurrent] = useState(emptyMeme);
   const [images, setImages] = useState<Array<ImageInterface>>([])
@@ -21,6 +22,7 @@ function App() {
       <FlexV3rdGRow>
         <Header />
         <Navbar />
+        <MemeThumbnail/>
         <FlexH1RstGrow>
           <MemeSVGViewer image={images.find(e=>e.id===current.imageId)} meme={current} basePath="" />
           <MemeForm
