@@ -1,4 +1,4 @@
-import { useEffect, useState, type FC } from "react";
+import React, { useEffect, useState, type FC } from "react";
 import styles from "./MemeForm.module.css";
 import type { ImageInterface, MemeInterface } from "orsys-tjs-meme";
 
@@ -18,24 +18,20 @@ const MemeForm: FC<IMemeFormProps> = ({ images, meme, onMemeSubmit }) => {
     }
     return ret
   }*/
-  const onTextInputChange = (
-    evt: React.ChangeEvent<HTMLInputElement, HTMLInputElement>,
-  ) => {
-    onMemeSubmit({ ...meme, [evt.target.name]: evt.target.value });
+  const onStringInput: React.ChangeEventHandler<
+    HTMLInputElement,
+    HTMLInputElement
+  > = (evt) => {
+    setState({ ...state, [evt.target.name]: evt.target.value });
   };
   return (
     <div className={styles.MemeForm} data-testid="MemeForm">
-      <form >
+      <form>
         <label htmlFor="titre">
           <h1>Titre</h1>
         </label>
         <br />
-        <input
-          name="titre"
-          id="titre"
-          value={meme.titre}
-          onChange={onTextInputChange}
-        />
+        <input name="titre" id="titre" value="React is easy" />
         <hr />
         <label htmlFor="image">
           <h2>Image</h2>
@@ -58,8 +54,8 @@ const MemeForm: FC<IMemeFormProps> = ({ images, meme, onMemeSubmit }) => {
           name="text"
           id="text"
           type="text"
-          value={meme.text}
-          onChange={onTextInputChange}
+          value={state.text}
+          onChange={onStringInput}
         />
         <br />
         <label htmlFor="x">
