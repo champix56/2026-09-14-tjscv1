@@ -27,6 +27,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/editor" Component={Editor}/>
+          <Route path="/editor/:id" Component={Editor}/>
           <Route path="/thumbnail" Component={Thumbnail}/>
         </Routes>
         <Footer />
